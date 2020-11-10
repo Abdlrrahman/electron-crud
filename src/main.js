@@ -12,6 +12,8 @@ function createWindow() {
       nodeIntegration: true,
     },
   });
+
+  window.loadFile("src/screen/index.html");
 }
 
 module.exports = {
