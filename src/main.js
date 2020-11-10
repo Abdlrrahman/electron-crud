@@ -13,7 +13,7 @@ function createWindow() {
     },
   });
 
-  window.loadFile("src/screen/index.html");
+  window.loadFile("src/screens/html/index.html");
 }
 
 module.exports = {
