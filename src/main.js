@@ -21,7 +21,7 @@ const createProduct = async (product) => {
   try {
     const conn = await getConnection();
     product.price = parseFloat(product.price);
-    const result = await conn.query("INSERT INTO product SET ?", product);
+    const result = await conn.query("INSERT INTO products SET ?", product);
     product.id = result.insertId;
 
     // Notify the User
@@ -39,25 +39,25 @@ const createProduct = async (product) => {
 
 const getProducts = async () => {
   const conn = await getConnection();
-  const results = await conn.query("SELECT * FROM product ORDER BY id DESC");
+  const results = await conn.query("SELECT * FROM products ORDER BY id DESC");
   return results;
 };
 
 const deleteProduct = async (id) => {
   const conn = await getConnection();
-  const result = await conn.query("DELETE FROM product WHERE id = ?", id);
+  const result = await conn.query("DELETE FROM products WHERE id = ?", id);
   return result;
 };
 
 const getProductById = async (id) => {
   const conn = await getConnection();
-  const result = await conn.query("SELECT * FROM product WHERE id = ?", id);
+  const result = await conn.query("SELECT * FROM products WHERE id = ?", id);
   return result[0];
 };
 
 const updateProduct = async (id, product) => {
   const conn = await getConnection();
-  const result = await conn.query("UPDATE product SET ? WHERE Id = ?", [
+  const result = await conn.query("UPDATE products SET ? WHERE Id = ?", [
     product,
     id,
   ]);

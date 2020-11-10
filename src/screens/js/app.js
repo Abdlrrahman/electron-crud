@@ -1,5 +1,4 @@
-const { remote } = require("electron");
-const main = remote.require("./main");
+const main = require('../../main.js');
 
 const productForm = document.querySelector("#productForm");
 const productName = document.querySelector("#name");
@@ -86,8 +85,8 @@ const getProducts = async () => {
   renderProducts(products);
 };
 
-async function init() {
-  getProducts();
+const init = async () => {
+  await getProducts();
 }
 
 init();
